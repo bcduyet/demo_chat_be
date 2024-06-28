@@ -1,0 +1,77 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.4'
+}	
+
+group = 'chat'
+version = '0.0.1-SNAPSHOT'
+
+
+java {
+	sourceCompatibility = '17'
+}
+
+bootJar {
+	archiveFileName = 'xeex_chat.jar'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-jdbc"
+	implementation "org.springframework.data:spring-data-jdbc:3.2.4"
+	implementation "com.mysql:mysql-connector-j:8.2.0"
+	implementation "org.springframework.boot:spring-boot-starter-tomcat"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework:spring-webmvc"
+	implementation "org.springframework.boot:spring-boot-configuration-processor"
+	implementation "org.springframework.boot:spring-boot-starter-validation"
+	implementation "javax.validation:validation-api:2.0.1.Final"
+	implementation "org.springframework.security:spring-security-config"
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation 'org.springframework.security:spring-security-crypto:6.2.1'
+	implementation "io.jsonwebtoken:jjwt:0.9.1"
+	implementation 'mysql:mysql-connector-java:8.0.33'
+	implementation "log4j:log4j:1.2.17"
+	implementation "com.google.code.gson:gson:+"
+	implementation "org.apache.maven.plugins:maven-resources-plugin:+"
+	implementation "org.projectlombok:lombok:1.18.20"
+	implementation "org.apache.poi:poi-ooxml:+"
+	implementation "javax.xml.bind:jaxb-api:2.3.1"
+	implementation "com.sun.xml.bind:jaxb-impl:2.3.3"
+	implementation "com.sun.xml.bind:jaxb-core:2.3.0.1"
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: '3.2.5'
+	implementation 'javax.annotation:javax.annotation-api:+'
+	testImplementation "org.junit.jupiter:junit-jupiter-api:5.10.2"
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'	
+	testImplementation 'com.h2database:h2'
+	implementation "org.mapstruct:mapstruct:1.5.5.Final"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.5.Final"	
+	//environment variables
+	implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+	//ENC environment variables
+	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3'
+	//skip warning enum unknown
+	implementation 'com.google.code.findbugs:jsr305:3.0.2'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
