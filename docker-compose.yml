@@ -3,7 +3,7 @@ version: '3'
 services:
   
   app:
-    image: ghcr.io/xeex-brycen/xeex_be_chat:main
+    image: ghcr.io/bcduyet/demo_chat_be:main
     ports:
       - "8080:8080"
     restart: unless-stopped
